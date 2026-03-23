@@ -1,27 +1,71 @@
-# Spring 2026 UNICC AI Safety Lab
+# UNICC AI Safety Lab (Spring 2026)
 
-## Team Members
-- [Your Name] — Project 1
-- [Teammate Name] — Project 2
-- [Teammate Name] — Project 3
+A council based AI Safety Lab for evaluating AI agents before deployment through three independent expert judges and one synthesis layer.
+
+## Overview
+
+This project aims to build a multi module AI Safety Lab for pre deployment evaluation of AI agents in an institutionally controlled environment. The system is designed to assess AI agents from multiple independent perspectives, compare expert outputs, surface disagreements, and generate transparent, auditable recommendations for human review.
+
+The project builds on the top three Fall 2025 capstone solutions, but extends them into a new Spring 2026 architecture based on:
+- three independent expert judges
+- one critique, arbitration, and synthesis layer
+- structured schemas for integration
+- portability to the NYU SPS sandbox / DGX Spark environment
 
 ## Project Goal
-Build a council based AI Safety Lab for evaluating AI agents before deployment using three independent expert judges and one synthesis layer. The system extends the top Fall 2025 capstone solutions into a new multi module architecture for the Spring 2026 UNICC project. 
 
-## Structure
-- `docs/` documentation and analysis
-- `schemas/` shared input and output schemas
-- `assets/` architecture diagrams
-- `sample_data/` mock data and example outputs
-- `src/` implementation code
+The goal of this project is to develop a council based AI Safety Lab that can:
+- evaluate AI agents before deployment
+- generate structured safety and governance assessments
+- support transparent comparison across multiple expert modules
+- provide final recommendations through synthesis logic
+- preserve logs, evidence, and audit trails for institutional review
 
-## Workstreams
-- Project 1: Research and Platform Preparation
-- Project 2: Expert Modules and Council Development
-- Project 3: Testing, Interface, and Integration
+## System Architecture
 
-## Platforms
-Development is managed through GitHub and lightweight prototyping tools. The final target platform is the NYU SPS sandbox / DGX Spark environment. 
+The proposed system is organized into five layers:
 
-## Current Status
-The team is currently working on baseline comparison, architecture design, schema drafting, evaluation criteria, and platform planning.
+### 1. Input Layer
+- agent submission
+- metadata form
+- evidence upload
+- framework selection
+- test configuration
+
+### 2. Platform Layer
+- SLM runtime environment
+- request manager / orchestrator
+- schema / interface registry
+- artifact store
+- log and audit store
+- access control
+
+### 3. Expert Layer
+- Judge 1
+- Judge 2
+- Judge 3
+
+### 4. Coordination Layer
+- critique engine
+- disagreement detection
+- arbitration logic
+- synthesis engine
+
+### 5. Presentation Layer
+- dashboard
+- per module results
+- executive summary report
+- technical detail report
+- audit trail
+
+## Repository Structure
+
+```text
+unicc-ai-safety-lab-sp26/
+├── README.md
+├── docs/
+├── schemas/
+├── assets/
+├── sample_data/
+├── src/
+└── requirements.txt
