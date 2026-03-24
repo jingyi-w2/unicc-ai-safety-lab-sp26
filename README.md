@@ -126,15 +126,12 @@ curl http://localhost:11434/api/generate -d '{
 ```
 
 ## How to Run the Project
-### Step 1
+### Option 1: Run the local pipeline directly
 
-Open a terminal and go to the app folder:
+Go to the app folder:
 ```text
 cd app
 ```
-
-### Step 2
-
 Run the pipeline:
 ```text
 python main.py
@@ -143,7 +140,17 @@ If needed, use:
 ```text
 python3 main.py
 ```
+### Option 2: Run the upload API
 
+From the project root directory, run:
+```text
+python3 -m uvicorn app.api:app --reload --port 8000
+```
+Then open:
+```text
+http://127.0.0.1:8000/docs
+```
+Use the POST /submit endpoint to test metadata submission and file upload.
 ## Input Cases
 
 ### The data/ folder contains sample submission cases for testing.
@@ -193,10 +200,10 @@ All future expert modules should preserve the common input and output schemas do
 
 For the next development stage:
 
-- Project 1 has prepared the platform skeleton, documentation, schemas, and initial local SLM environment
-- Judge 1 already demonstrates real local SLM integration
-- Judge 2 and Judge 3 are still available as integration entry points for future expert modules
-- Future work should continue by replacing mock judge logic with actual model backed or prior capstone based expert modules
+- Project 1 has prepared the platform skeleton, documentation, schemas, local SLM environment, and upload API prototype
+- all three judge slots are now connected to the local SLM backend with different expert prompts
+- the upload API provides a working local submission path for metadata and file based testing
+- future work can continue by refining judge prompts, replacing prototype logic with more specialized expert module logic, and expanding the local environment toward the DGX Spark and sandbox target environment
 ## Notes
 
 This repository is currently a development stage prototype. It is intended to support:
@@ -204,4 +211,5 @@ This repository is currently a development stage prototype. It is intended to su
 - architecture definition
 - local SLM experimentation
 - expert module integration
-- future portability to the NYU DGX Spark / sandbox environment
+- upload and submission flow prototyping
+- future portability to the NYU DGX Spark and sandbox environment
