@@ -94,13 +94,113 @@ unicc-ai-safety-lab-sp26/
 │
 └── requirements.txt
 ```
-
 ## Requirements
 
-Install Python dependencies:
-
-~~~bash
+### Install Python dependencies:
+```text
 pip install -r requirements.txt
 ```
 
+## Local SLM Setup
+###1. Install Ollama
+
+Install Ollama on your local machine.
+
+###2. Pull the model
+```text
+ollama pull llama3.2:3b
+```
+
+### 3. Test the model locally
+```text
+ollama run llama3.2:3b
+```
+
+### 4. Test the API
+```text
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama3.2:3b",
+  "prompt": "Return a short JSON object with status ok",
+  "stream": false
+}'
+```
+
+## How to Run the Project
+### Step 1
+
+Open a terminal and go to the app folder:
+```text
+cd app
+```
+
+###Step 2
+
+Run the pipeline:
+```text
+python main.py
+```
+If needed, use:
+```text
+python3 main.py
+```
+
+## Input Cases
+
+### The data/ folder contains sample submission cases for testing.
+
+sample_submission.json
+Baseline case
+sample_submission_low.json
+Lower risk case
+sample_submission_critical.json
+Higher risk or critical case
+
+These are submission cases, not expert judges. Each submission case is evaluated by all three judges.
+
+Output Files
+
+After running the pipeline, the system generates:
+
+outputs/judge1_output.json
+outputs/judge2_output.json
+outputs/judge3_output.json
+outputs/synthesis_output.json
+outputs/full_result.json
+
+And a log file:
+
+logs/pipeline_log.json
+Integration Rules
+
+The platform is intentionally structured so that future expert module integration happens at the judge layer.
+
+Future module integration should happen in:
+
+app/judge1.py
+app/judge2.py
+app/judge3.py
+
+The following files should remain stable unless necessary:
+
+app/main.py
+app/orchestrator.py
+app/synthesis.py
+
+All future expert modules should preserve the common input and output schemas documented in the schemas/ folder.
+
+Current Handoff Guidance
+
+For the next development stage:
+
+Project 1 has prepared the platform skeleton, documentation, schemas, and initial local SLM environment
+Judge 1 already demonstrates real local SLM integration
+Judge 2 and Judge 3 are still available as integration entry points for future expert modules
+Future work should continue by replacing mock judge logic with actual model backed or prior capstone based expert modules
+Notes
+
+This repository is currently a development stage prototype. It is intended to support:
+
+architecture definition
+local SLM experimentation
+expert module integration
 future portability to the NYU DGX Spark / sandbox environment
