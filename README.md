@@ -94,7 +94,7 @@ unicc-ai-safety-lab-sp26/
 │
 └── requirements.txt
 
-# Requirements
+## Requirements
 
 Install Python dependencies:
 
