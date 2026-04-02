@@ -52,9 +52,9 @@ http://localhost:8501
 - User submits agent information via the UI
 - Frontend sends data to the backend API through POST /submit
 - Backend runs three judges:
-1.Technical risk
-2.Governance and compliance
-3.Operational and system risk
+1. Technical risk
+2. Governance and compliance
+3. Operational and system risk
 - Critique step reconciles outputs
 - Synthesis step produces the final decision
 ## Example Input
