@@ -8,6 +8,7 @@ from typing import Any
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.responses import JSONResponse
 
+try:
     from app.orchestrator import run_pipeline
 except ModuleNotFoundError:
     from orchestrator import run_pipeline
