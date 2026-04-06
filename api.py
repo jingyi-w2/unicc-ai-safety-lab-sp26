@@ -8,7 +8,9 @@ from typing import Any
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.responses import JSONResponse
 
-from app.orchestrator import run_pipeline
+    from app.orchestrator import run_pipeline
+except ModuleNotFoundError:
+    from orchestrator import run_pipeline
 
 app = FastAPI(title="UNICC AI Safety Lab Upload API")
 
