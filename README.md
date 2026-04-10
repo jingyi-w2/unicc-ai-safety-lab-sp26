@@ -382,6 +382,7 @@ The interface acts as the entry point to a multi agent AI safety evaluation pipe
 
 
 
+```text
 unicc_ai_safety_lab_sp26/
 ├── app/                         # Core backend modules
 │   ├── api.py                   # FastAPI submission endpoint
@@ -404,3 +405,5 @@ unicc_ai_safety_lab_sp26/
 ├── outputs/                     # Evaluation output files
 ├── logs/                        # Execution logs
 └── artifacts/                   # Uploaded supporting evidence
+
+```
